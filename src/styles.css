@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+.indexView p {
+  margin-top: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 500;
+}/* You can add global styles to this file, and also import other style files */

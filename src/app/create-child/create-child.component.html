@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Family Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=css/normalize.css>
+    <link rel="stylesheet" href=css/main.css>
+  </head>
+  <body>
+    <div class="createChildView">
+      <form class="createChildForm">
+        <h2>Dane dziecka</h2>
+        <input type="text" class="form-control" id="childFirstName" required [(ngModel)]="child.firstName" name="childFirstName" placeholder="Imię"/>
+        <input type="text" class="form-control" id="childSecondName" required [(ngModel)]="child.secondName" name="childSecondName" placeholder="Nazwisko"/>
+        <input type="text" class="form-control" id="childPesel" required [(ngModel)]="child.pesel" name="childPesel" placeholder="PESEL"/>
+        <input type="text" class="form-control" id="childBirthDate" required [(ngModel)]="child.birthDate" name="childBirthDate" placeholder="Data urodzenia (RRRR-MM-DD)"/>
+        <label><input type="radio" required [(ngModel)]="child.gender" value="M"  name="Gender">Mężczyzna</label>
+        <label><input type="radio" required [(ngModel)]="child.gender" value="K"  name="Gender" >Kobieta</label>
+      </form>
+     <a><button class="btn btn-success pull-right" id="addChildButton" (click)="validateInput()">Dodaj dziecko</button></a>
+     <button type="submit" name="button" id="doneButton"(click)="sendData()">Gotowe</button>
+   </div>
+   <div class="family" id="family" style="display:none" *ngIf="selectedFather">
+     <div>
+       <label>Ojciec<br><br>
+         Imię:  {{selectedFather.firstName}}<br>
+         Nazwisko:  {{selectedFather.secondName}}<br>
+         PESEL:  {{selectedFather.pesel}}<br>
+         Data Urodzenia:  {{selectedFather.birthDate.substring(0,10)}}<br>
+       </label>
+       <label><br>Dzieci<br><br></label>
+       <div class="childs">
+         <li *ngFor="let child of selectedChildrens">
+         Imię:   {{child.firstName}}<br>
+         Nazwisko:  {{child.secondName}}<br>
+         PESEL:  {{child.pesel}}<br>
+         Data Urodzenia:  {{child.birthDate.substring(0,10)}}<br>
+         Płeć:  {{child.gender}}<br><br>
+        </li>
+
+       </div>
+     </div>
+   </div>
+  </body>
+</html>

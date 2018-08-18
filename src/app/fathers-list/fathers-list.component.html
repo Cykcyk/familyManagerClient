@@ -1,0 +1,44 @@
+
+<div class="searchChildView">
+  <h2>Wyszukiwarka</h2>
+  <form class="searchChildForm">
+    <input type="text" class="form-control" id="childFirstName" required [(ngModel)]="this.firstName" name="childFirstName" placeholder="Imię"/>
+    <input type="text" class="form-control" id="childSecondName" required [(ngModel)]="this.secondName" name="childSecondName" placeholder="Nazwisko"/>
+    <input type="text" class="form-control" id="childPesel" required [(ngModel)]="this.pesel" name="childPesel" placeholder="PESEL"/>
+    <input type="text" class="form-control" id="childBirthDate" required [(ngModel)]="this.birthDate" name="childBirthDate" placeholder="Data urodzenia (RRRR-MM-DD)"/>
+    <label><input type="radio" [(ngModel)]="this.gender" value="M" name="Gender">Mężczyzna</label>
+    <label><input type="radio" [(ngModel)]="this.gender" value="K" name="Gender">Kobieta</label>
+  </form>
+ <button type="submit" name="button" id="searchButton" (click)="searchChild()">Wyszukaj</button>
+</div>
+<ul class="fathers">
+  <li *ngFor="let father of fathers"
+    [class.selected]="father === selectedFather"
+    (click)="onSelect(father)">
+    <span class="badge">{{father.secondName}}</span> {{father.firstName}} {{father.pesel}} {{father.birthDate.substring(0,10)}}
+  </li>
+
+</ul>
+
+<div class="familiesList" *ngIf="selectedFather">
+  <div>
+    <label>Ojciec<br><br>
+      Imię:  {{selectedFather.firstName}}<br>
+      Nazwisko:  {{selectedFather.secondName}}<br>
+      PESEL:  {{selectedFather.pesel}}<br>
+      Data Urodzenia:  {{selectedFather.birthDate.substring(0,10)}}<br>
+    </label>
+    <label><br>Dzieci<br><br></label>
+    <div class="childs">
+      <li *ngFor="let child of selectedChildren"
+      [class]="child.familyId === selectedFather.familyId">
+      Imię:   {{child.firstName}}<br>
+      Nazwisko:  {{child.secondName}}<br>
+      PESEL:  {{child.pesel}}<br>
+      Data Urodzenia:  {{child.birthDate.substring(0,10)}}<br>
+      Płeć:  {{child.gender}}<br><br>
+     </li>
+
+    </div>
+  </div>
+</div>

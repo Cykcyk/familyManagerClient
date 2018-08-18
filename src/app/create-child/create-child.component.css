@@ -1,0 +1,57 @@
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.createChildForm {
+
+}
+
+.createChildView {
+  position: static;
+  float: left;
+  padding-left: 55%;
+  padding-top: 5%;
+  width:50%;
+  text-align: center;
+}
+
+#childFirstName, #childSecondName, #childPesel, #childBirthDate {
+  float: left;
+  text-align:start;
+  width: 100%;
+  height: 20px;
+}
+
+#addChildButton {
+      float: left;
+      width: 40%;
+}
+
+#doneButton {
+  float: right;
+  width: 40%;
+}
+
+#familyDetails{
+  display: none;
+}
+
+.family {
+  position: absolute;
+  padding-top: 37%;
+  float: left;
+}
+
+.family label {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.family li {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  text-transform: uppercase;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Family Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=css/normalize.css>
+    <link rel="stylesheet" href=css/main.css>
+  </head>
+  <body>
+    <div class="createFatherView">
+      <form class="createFatherForm">
+        <h2>Dane ojca</h2>
+        <input type="text" class="form-control" id="fatherFirstName" required [(ngModel)]="father.firstName" name="fatherFirstName" placeholder="Imię"/>
+        <input type="text" class="form=control" id="fatherSecondName" required [(ngModel)]="father.secondName" name="fatherSecondName" placeholder="Nazwisko"/>
+        <input type="text" class="form=control" id="fatherPesel" required [(ngModel)]="father.pesel" name="fatherPesel" placeholder="PESEL"/>
+        <input type="text" class="form=control" id="fatherBirthDate" required [(ngModel)]="father.birthDate" name="fatherBirthDate" placeholder="Data (RRRR-MM-DD)"/>
+      </form>
+     <a routerLink="../createChild"><button class="btn btn-success pull-right" id="finishButton" (click)="createFather()" > Gotowe</button></a>
+     <!-- <button type="button" name="button">Gotowe</button> -->
+    </div>
+  </body>
+</html>
